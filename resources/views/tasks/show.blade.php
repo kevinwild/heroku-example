@@ -8,11 +8,11 @@
             {{ csrf_field() }}
             {{ method_field('PATCH') }}
             <label for="taskTitle">Task Title</label>
-            <input type="text" class="form-control" id="taskTitle" name="body" value="{{$task->body}}">
+            <input type="text" class="form-control" id="taskTitle" name="body" value="{{$task->name}}">
         </div>
         <div class="form-group">
             <label for="taskStatus">Task Status</label>
-            <select class="form-control" id="taskStatus" name="completed" value="{{$task->completed}}">
+            <select class="form-control" id="taskStatus" name="completed" value="{{$task->complete}}">
                 <option value="1">Complete</option>
                 <option value="2">Incomplete</option>
             </select>

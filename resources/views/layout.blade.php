@@ -9,7 +9,11 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <title>Let's Go!</title>
-    </head>
+
+    <link href="css/app.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+</head>
     <body>
     <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
@@ -20,13 +24,11 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">Project name</a>
+                <a class="navbar-brand" href="#">ToDo Centeral</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li class="active"><a href="#">Home</a></li>
-                    <li><a href="#about">About</a></li>
-                    <li><a href="#contact">Contact</a></li>
+                    <li><a href="#create" class="btn btn-primary" role="button">Create New</a></li>
                 </ul>
             </div><!--/.nav-collapse -->
         </div>
@@ -35,10 +37,7 @@
 
 
     <div class="container">
-
-            <div class="starter-template">
-                <h1>Bootstrap starter template</h1>
-                <p class="lead">Use this document as a way to quickly start any new project.<br> All you get is this text and a mostly barebones HTML document.</p>
+            <div class="starter-template" style="margin-top:75px;">
                 <p> @yield('content') </p>
             </div>
 
@@ -46,10 +45,10 @@
     </body>
 
 
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
     <!-- Custom styles for this template -->
-    <link href="css/app.css" rel="stylesheet">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.0/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.16/js/jquery.dataTables.min.js"></script>
+
 
 </html>

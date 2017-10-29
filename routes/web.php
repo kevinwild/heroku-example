@@ -17,7 +17,11 @@ Route::get('/', 'WelcomeController@index');
 Route::get('/about', function () {
     return view('about');
 });
-Route::get('/tasks/{task}', 'TasksController@show');
+Route::get('/tasks/{task}', function($id) {
+    $task = DB::table('todos')->find($id);
+    return view('tasks.show',compact('task'));
+
+});
 
 //Route::post('/tasks', 'TasksController@store');
 //Route::get('/tasks', 'TasksController@index');

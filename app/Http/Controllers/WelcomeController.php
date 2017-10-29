@@ -7,11 +7,8 @@ use Illuminate\Http\Request;
 class WelcomeController extends Controller
 {
     public function index(){
-        $tasks = [
-            'one task',
-            'two task',
-            'three task',
-        ];
+        $tasks = \DB::table('todos')->get();
+        //return $tasks;
         return view( 'welcome', compact( 'tasks'));
     }
     //
