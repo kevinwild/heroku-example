@@ -8,7 +8,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
-    <title>Let's Go!</title>
+    <title>ToDo Central</title>
 
     <link href="css/app.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
@@ -24,11 +24,12 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="#">ToDo Centeral</a>
+                <a class="navbar-brand" href="/heroku-example/public">ToDo Central</a>
             </div>
             <div id="navbar" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav">
-                    <li><a href="#create" class="btn btn-primary" role="button">Create New</a></li>
+                    <li><a href="tasks/create" class="btn btn-primary" style="color:white;" role="button">Create New</a></li>
+
                 </ul>
             </div><!--/.nav-collapse -->
         </div>

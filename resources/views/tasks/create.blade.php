@@ -2,7 +2,7 @@
 
 @section('content')
 
-    <form action="/tasks" method="post" class="col-sm-8">
+    <form action="store" method="post" class="col-sm-8">
 
         <div class="form-group">
             {{ csrf_field() }}

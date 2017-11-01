@@ -3,7 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Task;
+use App\Todos;
 use Session;
 class TasksController extends Controller
 {
@@ -15,8 +15,8 @@ class TasksController extends Controller
     public function index()
     {
         //
-        $tasks = Task::all();
-        return view(view: 'welcome', compact(varname 'tasks'));
+        $tasks = Todos::all();
+        return view( 'welcome', compact( 'tasks'));
     }
 
     /**
@@ -26,7 +26,7 @@ class TasksController extends Controller
      */
     public function create()
     {
-        //
+        return view('tasks.create');
     }
 
     /**
@@ -35,9 +35,14 @@ class TasksController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(Request $request, Todos $task)
     {
-        //
+        $task = new Todos;
+        $task->user_id = 1;
+        $task->name = request('body');
+        $task->complete = request('completed');
+        $task->save();
+        return redirect('/');
     }
 
     /**
@@ -46,14 +51,10 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Task $task)
+    public function show($id)
     {
-        //
-        $task = new Task;
-        $task->body = request('body');
-        $task->completed = request('completed');
-        $task->save();
-        return redirect('/tasks');
+        $task = Todos::find($id);
+        return view('tasks.show', compact('task'));
     }
 
     /**
@@ -62,9 +63,12 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Task task)
+    public function edit(Todos $task)
     {
-        //
+        $task->name = request('body');
+        $task->complete = request('completed');
+        $task->save();
+        return redirect('/');
     }
 
     /**
@@ -74,7 +78,7 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Task task)
+    public function update(Request $request, Todos $task)
     {
         $task->body = request('body');
         $task->completed = request('completed');
@@ -88,11 +92,12 @@ class TasksController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Task task)
+    public function destroy(Request $request, $id)
     {
+        $task = Todos::find($id);
         $task->delete();
 
         // redirect
-        return redirect('/tasks');
+        return redirect('/');
     }
 }

@@ -1,28 +1,28 @@
 <?php
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
+use App\Todos;
 
 Route::get('/', 'WelcomeController@index');
+Route::get('/tasks/create', 'TasksController@create');
+Route::post('/tasks/store', 'TasksController@store');
+Route::delete('/tasks/{tasks}/delete', 'TasksController@destroy');
+Route::patch('/tasks/{task}/edit', 'TasksController@edit');
 
-Route::get('/about', function () {
+Route::get('/tasks/{task}', 'TasksController@show');
+
+
+/*Route::get('/about', function () {
     return view('about');
 });
+*/
+
+/*
 Route::get('/tasks/{task}', function($id) {
-    $task = DB::table('todos')->find($id);
-    return view('tasks.show',compact('task'));
+    //$task = DB::table('todos')->find($id);
+   $task = Todos::find($id);
+   return view('tasks.show',compact('task'));
 
 });
-
+*/
 //Route::post('/tasks', 'TasksController@store');
 //Route::get('/tasks', 'TasksController@index');
 //Route::get('/tasks/create', 'TasksController@create');
